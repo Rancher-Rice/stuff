@@ -1,5 +1,42 @@
-defaultNamespace: kubeinvaders 
+defaultNamespace: default
 helm:
   chart: https://github.com/lucky-sideburn/helm-charts/raw/master/kubeinvaders-1.9.tgz?raw=true
   values:
-    fullnameOverride: "kubeinvaders"
+    fullnameOverride: "rancher-demo"
+    env:
+      SHOW_VERSION: true
+      COW_COLOR: "white"
+      SKIP_ERRORS: true
+    ingress:
+      hosts:
+        - host: sslip.io
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+    autoscaling:
+      enabled: true
+      minReplicas: 4
+      maxReplicas: 25
+      targetCPUUtilizationPercentage: 80
+
+
+diff:
+  comparePatches:
+  - apiVersion: networking.k8s.io/v1
+    name: rancher-demo
+    namespace: default
+    kind: Ingress
+    operations:
+    - {"op": "remove", "path": "/spec/rules/0/host"}        
+
+targetCustomizations:
+  - name: cloud-service-providers
+    helm:
+      values:
+        service:
+          type: LoadBalancer
+        ingress:
+          enabled: false
+    clusterSelector:
+      matchLabels:
+        csp: true
