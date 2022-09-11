@@ -1,5 +1,5 @@
 defaultNamespace: kubeinvaders 
 helm:
-  chart: https://github.com/lucky-sideburn/helm-charts/raw/master/kubeinvaders-1.9.tgz 
+  chart: https://github.com/lucky-sideburn/helm-charts/raw/master/kubeinvaders-1.9.tgz?raw=true
   values:
     fullnameOverride: "kubeinvaders"
