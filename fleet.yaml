@@ -6,7 +6,7 @@ helm:
   # The directory of the chart in the repo.
   chart: "https://github.com/lucky-sideburn/helm-charts"
   # An https to a valid Helm repository to download the chart from
-  repo: "https://lucky-sideburn.github.io/helm-charts"
+  repo: ""
   # Used if repo is set to look up the version of the chart
   version: "master"
   # Force recreate resource that can not be updated
