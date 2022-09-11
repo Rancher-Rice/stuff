@@ -4,7 +4,7 @@ helm:
   # The release name to use. If empty a generated release name will be used
   releaseName: kubeinvaders 
   # The directory of the chart in the repo.
-  chart: "github.com/lucky-sideburn/KubeInvaders/tree/master/helm-charts/kubeinvaders"
+  chart: "github.com/lucky-sideburn/KubeInvaders"
   # An https to a valid Helm repository to download the chart from
   repo: "https://lucky-sideburn.github.io/helm-charts"
   # Used if repo is set to look up the version of the chart
